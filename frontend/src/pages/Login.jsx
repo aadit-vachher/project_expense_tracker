@@ -12,12 +12,12 @@ const Login=()=>{
   const sub=async(e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post('http://localhost:3000/api/auth/login',{email,pass})
+      const res=await axios.post('http://localhost:3000/api/auth/login',{email,password:pass})
       localStorage.setItem('token',res.data.token)
       seterr('')
       navigate('/dashboard')
-    }catch(err){
-      seterr(err.response?.data?.message||'Login failed')
+    }catch(error){
+      seterr(error.response?.data?.message||'Login failed')
     }
   }
 
@@ -34,14 +34,14 @@ const Login=()=>{
           <input type="email" placeholder="Email" value={email} required
             onChange={e=>setemail(e.target.value)}
             className="loginp"/>
-          <input type="pass" placeholder="pass" value={pass} required
+          <input type="password" placeholder="Password" value={pass} required
             onChange={e=>setpass(e.target.value)}
             className="loginp"/>
           <button type="submit" className="logbtn">Login</button>
         </form>
         <div className="logfooter">
           Don't have an account?
-          <button className="loglink" onClick={()=>navigate('/signup')}>Sign Up</button>
+          <button type="button" className="loglink" onClick={()=>navigate('/signup')}>Sign Up</button>
         </div>
         <div className="logdiv">
           <hr/>
@@ -49,10 +49,12 @@ const Login=()=>{
           <hr/>
         </div>
         <div className="logsoc">
-          <button>
+          <button type="button">
+            <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google"/>
             Google
           </button>
-          <button>
+          <button type="button">
+            <img src="https://img.icons8.com/ios-filled/24/000000/mac-os.png" alt="Apple"/>
             Apple
           </button>
         </div>

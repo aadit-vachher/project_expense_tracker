@@ -13,7 +13,7 @@ const Signup=()=>{
   const sub=async(e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post('http://localhost:3000/api/auth/signup',{name,email,pass})
+      const res=await axios.post('http://localhost:3000/api/auth/signup',{name,email,password:pass})
       localStorage.setItem('token',res.data.token)
       seterr('')
       navigate('/dashboard')
@@ -38,14 +38,14 @@ const Signup=()=>{
           <input type="email" placeholder="Email" value={email} required
             onChange={e=>setemail(e.target.value)}
             className="signupinp"/>
-          <input type="pass" placeholder="pass" value={pass} required
+          <input type="password" placeholder="Password" value={pass} required
             onChange={e=>setpass(e.target.value)}
             className="signupinp"/>
           <button type="submit" className="signupbtn">Sign Up</button>
         </form>
         <div className="signupfooter">
           Already have an account?
-          <button className="signuplink" onClick={()=>navigate('/login')}>Login</button>
+          <button type="button" className="signuplink" onClick={()=>navigate('/login')}>Login</button>
         </div>
       </div>
     </div>
