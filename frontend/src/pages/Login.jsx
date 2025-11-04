@@ -8,19 +8,16 @@ const Login=()=>{
   const [pass,setpass]=useState('')
   const [err,seterr]=useState('')
   const navigate=useNavigate()
-
   const sub=async(e)=>{
     e.preventDefault()
     try{
       const res=await axios.post('http://localhost:3000/api/auth/login',{email,password:pass})
       localStorage.setItem('token',res.data.token)
       seterr('')
-      navigate('/dashboard')
-    }catch(error){
-      seterr(error.response?.data?.message||'Login failed')
-    }
+      navigate('/dashboard')}
+      catch(error){
+      seterr(error.response?.data?.message||'Login failed')}
   }
-
   return(
     <div className="logcont">
       <div className="logbox">
@@ -62,5 +59,4 @@ const Login=()=>{
     </div>
   )
 }
-
 export default Login

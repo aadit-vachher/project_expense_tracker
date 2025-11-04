@@ -14,6 +14,7 @@ const signup=async(req,res)=>{
     data:{name,email,password:hashpass}
   })
   const tok=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
+  console.log(tok) 
   res.status(201).json({tok})
 }
 
