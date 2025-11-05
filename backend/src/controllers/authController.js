@@ -25,7 +25,7 @@ const login=async(req,res)=>{
   const check=await bcrypt.compare(password,user.password)
   if(!check) return res.status(400).json({message:'Invalid credentials'})
   const tok=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
-  res.json({tok})
+  res.json({tok}) 
 }
 
 module.exports={signup,login}

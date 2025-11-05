@@ -40,21 +40,6 @@ const Login=()=>{
           Don't have an account?
           <button type="button" className="loglink" onClick={()=>navigate('/signup')}>Sign Up</button>
         </div>
-        <div className="logdiv">
-          <hr/>
-          <span>or</span>
-          <hr/>
-        </div>
-        <div className="logsoc">
-          <button type="button">
-            <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google"/>
-            Google
-          </button>
-          <button type="button">
-            <img src="https://img.icons8.com/ios-filled/24/000000/mac-os.png" alt="Apple"/>
-            Apple
-          </button>
-        </div>
       </div>
     </div>
   )
