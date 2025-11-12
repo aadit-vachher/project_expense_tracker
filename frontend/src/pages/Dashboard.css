@@ -1,4 +1,204 @@
-* {
+
+.addexpenseform {
+  margin: 24px auto 0 auto;
+  padding: 24px 32px;
+  background: #fff8e7;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px #1d1b0f11;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.addexpenseform input {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1.3px solid #f9c34b;
+  border-radius: 7px;
+  transition: border 0.2s;
+}
+
+.addexpenseform input:focus {
+  outline: none;
+  border: 1.7px solid #f9a602;
+  background: #fffdf7;
+}
+
+.addexpenseform button[type="submit"] {
+  background: #feca57;
+  border: none;
+  color: #393200;
+  border-radius: 7px;
+  font-size: 1.04rem;
+  padding: 10px 0;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background 0.15s;
+}
+
+.addexpenseform button[type="submit"]:hover {
+  background: #f9c34b;
+}
+
+.addexpenseform button[type="button"] {
+  background: transparent;
+  border: 1px solid #feca57;
+  color: #393200;
+  border-radius: 7px;
+  font-size: 0.98rem;
+  padding: 8px 0;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.err {
+  color: #cc2525;
+  background: #fff0e0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.expenseslist {
+  background: #fff;
+  padding: 28px 28px 18px 28px;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 500px;
+  box-shadow: 0 8px 24px #1d1b0f18;
+}
+
+.expenseslist h3 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #ec9400;
+}
+
+.expenseslist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.expenseslist li {
+  padding: 9px 0;
+  border-bottom: 1px solid #f1d88c;
+  font-size: 1.05rem;
+  color: #393200;
+  letter-spacing: 0.7px;
+}
+
+.expenseslist .closebtn {
+  margin: 12px auto 0 auto;
+  display: block;
+  background: #feca57;
+  color: #393200;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.01rem;
+  padding: 8px 21px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.expenseslist .closebtn:hover {
+  background: #fcc945;
+}
+
+@media (min-width: 768px) {
+  .dashhead {
+    padding: 20px 32px;
+  }
+  .dashlogo {
+    font-size: 24px;
+  }
+  .dashbody {
+    padding: 32px;
+  }
+  .welltitle {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .wellsub {
+    font-size: 16px;
+  }
+  .cardgrid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .actsec {
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .actbtn {
+    padding: 14px 24px;
+    font-size: 15px;
+    flex: auto;
+  }
+  .infosec {
+    padding: 20px;
+  }
+  .infotext {
+    font-size: 14px;
+  }
+  .addexpenseform {
+    max-width: 540px;
+    padding: 32px 38px;
+  }
+  .expenseslist {
+    max-width: 620px;
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashhead {
+    padding: 20px 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .dashbody {
+    padding: 40px;
+  }
+  .welltitle {
+    font-size: 36px;
+  }
+  .cardgrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    padding: 28px;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  }
+  .actbtn:hover {
+    transform: translateY(-2px);
+  }
+  .logoutbtn:hover {
+    transform: translateY(-2px);
+  }
+  .addexpenseform {
+    max-width: 600px;
+    padding: 40px 50px;
+  }
+  .expenseslist {
+    max-width: 700px;
+    padding: 55px;
+  }
+} */
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -171,6 +371,158 @@
   color: #6b7280;
   line-height: 1.6;
 }
+
+/* --- Expense form styling --- */
+.addexpenseform {
+  margin: 24px auto 0 auto;
+  padding: 24px 32px;
+  background: #fff8e7;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px #1d1b0f11;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+.addexpenseform input {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1.3px solid #f9c34b;
+  border-radius: 7px;
+  transition: border 0.2s;
+}
+.addexpenseform input:focus {
+  outline: none;
+  border: 1.7px solid #f9a602;
+  background: #fffdf7;
+}
+.addexpenseform button[type="submit"] {
+  background: #feca57;
+  border: none;
+  color: #393200;
+  border-radius: 7px;
+  font-size: 1.04rem;
+  padding: 10px 0;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background 0.15s;
+}
+.addexpenseform button[type="submit"]:hover {
+  background: #f9c34b;
+}
+.addexpenseform button[type="button"] {
+  background: transparent;
+  border: 1px solid #feca57;
+  color: #393200;
+  border-radius: 7px;
+  font-size: 0.98rem;
+  padding: 8px 0;
+  cursor: pointer;
+  margin-top: 3px;
+}
+.err {
+  color: #cc2525;
+  background: #fff0e0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* --- Expense list styling --- */
+.expenseslist {
+  background: #fff;
+  padding: 28px 28px 18px 28px;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 500px;
+  box-shadow: 0 8px 24px #1d1b0f18;
+}
+.expenseslist h3 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #ec9400;
+}
+
+/* --- EXPENSE TABLE --- */
+.exptable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 1.04rem;
+}
+.exptable th, .exptable td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #f1d88c;
+}
+.exptable th {
+  background: #fff8e7;
+  color: #ec9400;
+  font-weight: 700;
+  font-size: 1.07rem;
+}
+.exptable td {
+  color: #393200;
+  font-size: 1.01rem;
+}
+.noexp {
+  font-size: 1.05rem;
+  color: #cc2525;
+  padding: 7px;
+  text-align: center;
+}
+/* --- Expenses Close Button --- */
+.expenseslist .closebtn {
+  margin: 12px auto 0 auto;
+  display: block;
+  background: #feca57;
+  color: #393200;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.01rem;
+  padding: 8px 21px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.expenseslist .closebtn:hover {
+  background: #fcc945;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 20px 0;
+}
+.pagebtn {
+  background: #feca57;
+  color: #393200;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 7px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+.pagebtn:disabled {
+  background: #f1eedb;
+  color: #b5b35c;
+  cursor: not-allowed;
+}
+.pagenum {
+  font-size: 1rem;
+  color: #b5892e;
+  font-weight: 600;
+  background: #fff8e7;
+  border-radius: 7px;
+  padding: 7px 16px;
+}
 @media (min-width: 768px) {
   .dashhead {
     padding: 20px 32px;
@@ -211,6 +563,28 @@
   .infotext {
     font-size: 14px;
   }
+  .addexpenseform {
+    max-width: 540px;
+    padding: 32px 38px;
+  }
+  .expenseslist {
+    max-width: 620px;
+    padding: 40px;
+  }
+}
+.deletebtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.93rem;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+.deletebtn:hover {
+  background: #c81e1e;
 }
 @media (min-width: 1024px) {
   .dashhead {
@@ -239,5 +613,13 @@
   }
   .logoutbtn:hover {
     transform: translateY(-2px);
+  }
+  .addexpenseform {
+    max-width: 600px;
+    padding: 40px 50px;
+  }
+  .expenseslist {
+    max-width: 700px;
+    padding: 55px;
   }
 }

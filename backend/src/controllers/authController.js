@@ -13,9 +13,9 @@ const signup=async(req,res)=>{
   const user=await prisma.user.create({
     data:{name,email,password:hashpass}
   })
-  const tok=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
-  console.log(tok) 
-  res.status(201).json({tok})
+  const token=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
+  console.log(token) 
+  res.status(201).json({token})
 }
 
 const login=async(req,res)=>{
@@ -24,8 +24,8 @@ const login=async(req,res)=>{
   if(!user) return res.status(404).json({message:'User not found'})
   const check=await bcrypt.compare(password,user.password)
   if(!check) return res.status(400).json({message:'Invalid credentials'})
-  const tok=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
-  res.json({tok}) 
+  const token=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
+  res.json({token}) 
 }
 
 module.exports={signup,login}

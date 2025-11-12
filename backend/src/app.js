@@ -10,7 +10,10 @@ app.use(express.json())
 
 app.use('/api/auth',authRoutes)
 
+const expenseRoutes=require('./routes/expenseRoutes')
+app.use('/api/expense',expenseRoutes)
+
 app.get('/',(req,res)=>res.send('Backend running'))
 
-const PORT=process.env.PORT||3000
+const PORT=3000
 app.listen(PORT,()=>console.log(`Server running on port ${PORT}`))
