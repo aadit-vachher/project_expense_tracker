@@ -5,11 +5,15 @@ const prisma=new PrismaClient()
 
 const signup=async(req,res)=>{
   const {name,email,password}=req.body
-  const data1=await prisma.user.findUnique({where:{email}})
-  if(data1){
+  try{
+    const data1=await prisma.user.findUnique({where:{email}})
+    if(data1){
     return res.status(400).json({message:'Email taken'})
   } 
+  }
+  catch(err){console.log(err)}
   const hashpass=await bcrypt.hash(password,10)
+  try{
   const user=await prisma.user.create({
     data:{name,email,password:hashpass}
   })
@@ -17,15 +21,25 @@ const signup=async(req,res)=>{
   console.log(token) 
   res.status(201).json({token})
 }
-
+catch(err){
+  res.status(500).json({message:'Signup failed'})
+}}
 const login=async(req,res)=>{
   const {email,password}=req.body
+  try{
   const user=await prisma.user.findUnique({where:{email}})
   if(!user) return res.status(404).json({message:'User not found'})
+  }catch(err){
+    console.log(err)
+  }
+  try{
   const check=await bcrypt.compare(password,user.password)
   if(!check) return res.status(400).json({message:'Invalid credentials'})
   const token=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
   res.json({token}) 
+}catch(err){
+  res.status(500).json({message:'Login failed'})
+}
 }
 
 module.exports={signup,login}
