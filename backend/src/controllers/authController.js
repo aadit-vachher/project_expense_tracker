@@ -10,10 +10,7 @@ const signup=async(req,res)=>{
     if(data1){
     return res.status(400).json({message:'Email taken'})
   } 
-  }
-  catch(err){console.log(err)}
   const hashpass=await bcrypt.hash(password,10)
-  try{
   const user=await prisma.user.create({
     data:{name,email,password:hashpass}
   })
@@ -26,20 +23,19 @@ catch(err){
 }}
 const login=async(req,res)=>{
   const {email,password}=req.body
+  let user
   try{
-  const user=await prisma.user.findUnique({where:{email}})
-  if(!user) return res.status(404).json({message:'User not found'})
+    user=await prisma.user.findUnique({where:{email}})
+    if(!user) return res.status(404).json({message:'User not found'})
+    const check=await bcrypt.compare(password,user.password)
+    if(!check) return res.status(400).json({message:'Invalid credentials'})
+    const token=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
+    res.json({token}) 
   }catch(err){
     console.log(err)
+    res.status(500).json({message:'Login failed'})
   }
-  try{
-  const check=await bcrypt.compare(password,user.password)
-  if(!check) return res.status(400).json({message:'Invalid credentials'})
-  const token=jwt.sign({userId:user.id},process.env.JWT_SECRET,{expiresIn:'7d'})
-  res.json({token}) 
-}catch(err){
-  res.status(500).json({message:'Login failed'})
 }
-}
+
 
 module.exports={signup,login}
