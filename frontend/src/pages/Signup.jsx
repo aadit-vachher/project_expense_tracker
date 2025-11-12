@@ -13,7 +13,7 @@ const Signup=()=>{
   const sub=async(e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post('http://localhost:3000/api/auth/signup',{name,email,password:pass})
+      const res=await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`,{name,email,password:pass})
       localStorage.setItem('token',res.data.token)
       seterr('')
       navigate('/dashboard')
