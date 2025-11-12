@@ -623,3 +623,25 @@
     padding: 55px;
   }
 }
+
+
+.cardlabel form input[type="number"] {
+  padding: 7px 12px;
+  border-radius: 7px;
+  border: 1px solid #fbbf24;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+.cardlabel form button, .cardlabel button {
+  background: #fbbf24;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.98rem;
+  color: #393200;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+.cardlabel form button:hover, .cardlabel button:hover {
+  background: #f59e0b;
+}
